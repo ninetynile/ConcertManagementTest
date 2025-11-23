@@ -2,7 +2,7 @@ import { UserService } from './../user/user.service';
 import { Body, Controller, Delete, Get, Post, UsePipes, ValidationPipe, Param} from "@nestjs/common";
 import { ReserveService } from "./reserve.service";
 import { CreateReserveDto } from "./dto/CreateReserve.dto";
-import { ConcertService } from "src/concert/concert.service";
+import { ConcertService } from "../concert/concert.service";
 import { HttpException } from "@nestjs/common";
 import { CancelReserveDto } from "./dto/CancelReserve.dto";
 import mongoose from 'mongoose';

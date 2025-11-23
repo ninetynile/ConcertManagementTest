@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpException, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { UserService } from "./user.service";
 import { CreateUserDto } from "./dto/CreateUser.dto";
 import mongoose from 'mongoose';
@@ -6,49 +6,45 @@ import mongoose from 'mongoose';
 @Controller('user')
 export class UserController {
     constructor(private readonly userService: UserService) {}
-    
+
     @Post()
     @UsePipes(new ValidationPipe())
-    CreateUser(@Body() createUserDto: CreateUserDto) {
-        return this.userService.CreateUser(createUserDto);
+    async CreateUser(@Body() createUserDto: CreateUserDto) {
+        return await this.userService.CreateUser(createUserDto);
     }
 
     @Get()
-    GetUsers() {
-        return this.userService.GetUsers();
+    async GetUsers() {
+        return await this.userService.GetUsers();
     }
 
-    @Get(':email')
+    @Get('email/:email')
     async GetUserByEmail(@Param('email') email: string) {
-        const findUser = await this.userService.GetUserByEmail(email);
-        if (!findUser) {
+        const user = await this.userService.GetUserByEmail(email);
+        if (!user) {
             throw new HttpException('User not found', 404);
         }
-        return findUser;
+        return user;
     }
 
-    @Get('/reserves/:email')
+    @Get('reserves/:email')
     async GetUserByEmailWithReserves(@Param('email') email: string) {
-        const findUser = await this.userService.GetUserByEmailWithReserves(email);
-        if (!findUser) {
+        const user = await this.userService.GetUserByEmailWithReserves(email);
+        if (!user) {
             throw new HttpException('User not found', 404);
         }
-        return findUser;
+        return user;
     }
-
 
     @Get(':id')
-    GetUserById(@Param('id') id: string) {
-        const isValid = mongoose.Types.ObjectId.isValid(id);
-        if (!isValid) {
+    async GetUserById(@Param('id') id: string) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
             throw new HttpException('User not found', 404);
         }
-        const findUser = this.userService.GetUserById(id);
-        if (!findUser) {
+        const user = await this.userService.GetUserById(id);
+        if (!user) {
             throw new HttpException('User not found', 404);
         }
-        return findUser;
+        return user;
     }
-    
-
 }

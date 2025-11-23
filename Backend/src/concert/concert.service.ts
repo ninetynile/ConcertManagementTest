@@ -2,10 +2,10 @@ import { CreateConcertDto } from './dto/CreateConcert.dto';
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { Concert } from "src/schemas/concert.schema";
-import { Reserve } from "src/schemas/reserve.schema";
-import { ReserveTrn } from 'src/schemas/reserve_trn.schema';
-import { User } from 'src/schemas/user.schema';
+import { Concert } from "../schemas/concert.schema";
+import { Reserve } from "../schemas/reserve.schema";
+import { ReserveTrn } from '../schemas/reserve_trn.schema';
+import { User } from '../schemas/user.schema';
 
 @Injectable()
 export class ConcertService {

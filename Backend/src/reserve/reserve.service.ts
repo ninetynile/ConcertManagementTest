@@ -3,10 +3,10 @@ import { CreateReserveDto } from './dto/CreateReserve.dto';
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { Reserve } from "src/schemas/reserve.schema";
-import { ReserveTrn } from 'src/schemas/reserve_trn.schema';
-import { Concert } from 'src/schemas/concert.schema';
-import { User } from 'src/schemas/user.schema';
+import { Reserve } from "../schemas/reserve.schema";
+import { ReserveTrn } from '../schemas/reserve_trn.schema';
+import { Concert } from '../schemas/concert.schema';
+import { User } from '../schemas/user.schema';
 
 @Injectable()
 export class ReserveService {   

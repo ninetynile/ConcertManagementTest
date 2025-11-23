@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ConcertSchema } from 'src/schemas/concert.schema';
+import { ConcertSchema } from '../schemas/concert.schema';
 import { ConcertService } from './concert.service';
 import { ConcertController } from './concert.controller';
-import { ReserveModule } from 'src/reserve/reserve.module';
-import { Concert } from 'src/schemas/concert.schema';
-import { ReserveTrn, ReserveTrnSchema } from 'src/schemas/reserve_trn.schema';
-import { UserModule } from 'src/user/user.module';
+import { ReserveModule } from '../reserve/reserve.module';
+import { Concert } from '../schemas/concert.schema';
+import { ReserveTrn, ReserveTrnSchema } from '../schemas/reserve_trn.schema';
+import { UserModule } from '../user/user.module';
 import { forwardRef } from '@nestjs/common';
 
 

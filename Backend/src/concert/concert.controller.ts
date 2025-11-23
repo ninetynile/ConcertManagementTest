@@ -30,14 +30,12 @@ export class ConcertController {
         return this.concertService.GetConcerts();
     }
 
-    // Concert/:id
     @Get(':id')
-    GetConcertById(@Param('id') id: string) {
-        const isVaild = mongoose.Types.ObjectId.isValid(id);
-        if (!isVaild) {
+    async GetConcertById(@Param('id') id: string) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
             throw new HttpException('Concert not found', 404);
         }
-        const findConcert = this.concertService.GetConcetById(id);
+        const findConcert = await this.concertService.GetConcetById(id);
         if (!findConcert) {
             throw new HttpException('Concert not found', 404);
         }
@@ -46,22 +44,21 @@ export class ConcertController {
 
     @Patch(':id')
     @UsePipes(new ValidationPipe())
-    UpdateConcert(@Param('id') id: string, @Body() updateConcertDto: UpdateConcertDto) {
-        const isVaild = mongoose.Types.ObjectId.isValid(id);
-        if (!isVaild) {
+    async UpdateConcert(@Param('id') id: string, @Body() updateConcertDto: UpdateConcertDto) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
             throw new HttpException('Concert not found', 404);
         }
-        return this.concertService.UpdateConcert(id, updateConcertDto);
+        return await this.concertService.UpdateConcert(id, updateConcertDto);
     }
 
     @Delete(':id')
     @UsePipes(new ValidationPipe())
-    DeleteConcert(@Param('id') id: string) {
-        const isVaild = mongoose.Types.ObjectId.isValid(id); 
-        if (!isVaild) {
+    async DeleteConcert(@Param('id') id: string) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
             throw new HttpException('Concert not found', 404);
         }
-        return this.concertService.DeleteConcert(id);
+        return await this.concertService.DeleteConcert(id);
     }
+
 
 }
