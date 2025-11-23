@@ -31,6 +31,15 @@ npm i
 npm run dev
 ```
 
+Run backend unit test 
+```bash
+#Direct to backend folder
+cd backend 
+
+#Run test
+npm run test
+```
+
 Open http://localhost:3000 with your browser to see the result.
 
 ## Dev Tools
