@@ -15,7 +15,7 @@ npm i
 npm run start
 ```
 
-Then, run the frontend 
+Then, run the frontend (on port 3000)
 
 ```bash
 #Direct to frontend folder
@@ -27,3 +27,6 @@ npm i
 #Start Server
 npm run dev
 ```
+
+## Application Architecture
+
