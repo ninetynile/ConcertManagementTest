@@ -11,6 +11,7 @@ export function useConcertManagement() {
     const [isOpen, setIsOpen] = useState(false); // Confirm Delete Dialog
     const [deleteId, setDeleteId] = useState(null); // Set Delete Card Id
     const [deleteTitle, setDeleteTitle] = useState(null); // Set Delete Card Title (Display in Confirm Delete Dialog)
+    const [tabIndex, setTabIndex] = useState(0);  
     const cancelRef = useRef();
     const toast = useToast();
 
@@ -65,7 +66,9 @@ export function useConcertManagement() {
         getAllConcert();
         if (isAdmin) {
             getCancelledConcert();
-        }
+        } else (
+            setTabIndex(0)
+        )
     }, [isAdmin]);
 
     // --- Computed Values (Total Reserved & Total Ticket) ---
@@ -238,6 +241,8 @@ export function useConcertManagement() {
         totalTicketCount,
         isAdmin,
         reservedConcertIds,
+        tabIndex,
+        setTabIndex,
         // Methods
         createNewConcert,
         deleteConcert,

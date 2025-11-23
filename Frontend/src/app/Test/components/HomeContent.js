@@ -37,6 +37,8 @@ export default function HomeContent() {
         totalTicketCount,
         isAdmin,
         reservedConcertIds,
+        tabIndex,
+        setTabIndex,
         // Methods
         createNewConcert,
         deleteConcert,
@@ -59,7 +61,6 @@ export default function HomeContent() {
     const [newTitle, setNewTitle] = useState("");
     const [newTicket, setNewTicket] = useState("");
     const [newDescription, setNewDescription] = useState("");
-    const [tabIndex, setTabIndex] = useState(0);  
 
     // 3. UI Handlers
     const handleTitleChange = (e) => setNewTitle(e.target.value);
