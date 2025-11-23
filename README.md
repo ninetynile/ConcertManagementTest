@@ -89,7 +89,7 @@ src/
  └── main.ts               # Entry point
 ```
 
-##Future Improvement
+## Future Improvement
 - Use websocket to send updated data from server to client (handle many user action)
 - Separate component css file (for larger scale)
 - Use paginator in history page to handle large data table 
