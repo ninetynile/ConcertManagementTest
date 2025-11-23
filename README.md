@@ -8,6 +8,9 @@ First, run the backend server
 #Direct to backend folder
 cd backend
 
+#Create .env file inside backend folder
+COPY ENVCONF.text content from attachment file in submit test email, then PASTE it into this .env file
+
 #Install Dependency
 npm i
 
